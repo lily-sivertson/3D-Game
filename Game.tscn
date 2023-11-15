@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://qlo7p7su8kph"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_iyt7w"]
+[ext_resource type="Shader" path="res://UI/Sky.gdshader" id="1_qqh7y"]
+[ext_resource type="ArrayMesh" uid="uid://b0qp2qxdg2sfm" path="res://Assets/shotgun.obj" id="2_5sl6m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt24d"]
+size = Vector3(1.30091, 1.2363, 0.289367)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq5gg"]
+albedo_color = Color(0.662745, 0.141176, 0.494118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yvw7"]
+albedo_color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0q1f"]
+shader = ExtResource("1_qqh7y")
+shader_parameter/color_top = Color(0.91, 0.14, 1, 1)
+shader_parameter/color_horizon = Color(1, 0.4, 0.42, 1)
+shader_parameter/color_bottom = Color(1, 0.74, 0.39, 1)
+shader_parameter/exponent_factor_top = 1.0
+shader_parameter/exponent_factor_bottom = 1.0
+shader_parameter/intensity_amp = 1.0
+
+[sub_resource type="Sky" id="Sky_6wdbm"]
+sky_material = SubResource("ShaderMaterial_x0q1f")
+
+[sub_resource type="Environment" id="Environment_qrbop"]
+background_mode = 2
+sky = SubResource("Sky_6wdbm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydb4g"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_je6g2"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47285, 0)
+script = ExtResource("1_iyt7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0351688, 0.00522846, -0.00498676)
+shape = SubResource("BoxShape3D_rt24d")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.0517621, -0.0576658, -0.12964)
+material_override = SubResource("StandardMaterial3D_pq5gg")
+mesh = ExtResource("2_5sl6m")
+surface_material_override/0 = SubResource("StandardMaterial3D_3yvw7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qrbop")
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ydb4g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_je6g2")
