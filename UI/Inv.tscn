@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://be0rukoiq6ith"]
+
+[ext_resource type="Script" path="res://UI/Inv.gd" id="1_xmibq"]
+[ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_lcoxe"]
+
+[node name="Inv" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xmibq")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lcoxe")
+
+[node name="Inventory" type="Label" parent="."]
+layout_mode = 1
+offset_left = 293.0
+offset_top = 156.0
+offset_right = 368.0
+offset_bottom = 182.0
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Picture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = -89.0
+offset_right = 69.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 474.0
+offset_right = 908.0
+offset_bottom = 505.0
+text = "Back"
+
+[node name="Item" type="Label" parent="."]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 182.0
+offset_right = 638.0
+offset_bottom = 208.0
+text = "Item
+"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 368.0
+offset_right = 846.0
+offset_bottom = 568.0
+text = "item desc"
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 195.0
+offset_right = 512.0
+offset_bottom = 495.0
+item_count = 3
+item_0/text = "Flour"
+item_1/text = "Empty Pouch"
+item_2/text = "Recipe"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

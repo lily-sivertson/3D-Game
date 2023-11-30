@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://qlo7p7su8kph"]
+[gd_scene load_steps=15 format=3 uid="uid://qlo7p7su8kph"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_iyt7w"]
 [ext_resource type="Shader" path="res://UI/Sky.gdshader" id="1_qqh7y"]
-[ext_resource type="ArrayMesh" uid="uid://b0qp2qxdg2sfm" path="res://Assets/shotgun.obj" id="2_5sl6m"]
+[ext_resource type="ArrayMesh" uid="uid://d34rlao31mjlc" path="res://Assets/shotgun.obj" id="2_5sl6m"]
+[ext_resource type="PackedScene" uid="uid://d33lbbr5pcrcg" path="res://UI/HUD.tscn" id="4_8eg2a"]
+[ext_resource type="PackedScene" uid="uid://dhvaqilelkuwk" path="res://UI/Pause_menu.tscn" id="4_nfaes"]
+[ext_resource type="PackedScene" uid="uid://be0rukoiq6ith" path="res://UI/Inv.tscn" id="6_1a2fg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt24d"]
 size = Vector3(1.30091, 1.2363, 0.289367)
@@ -66,3 +69,13 @@ shape = SubResource("BoxShape3D_ydb4g")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("BoxMesh_je6g2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_8eg2a")]
+
+[node name="Pause_menu" parent="CanvasLayer" instance=ExtResource("4_nfaes")]
+visible = false
+
+[node name="Inv" parent="CanvasLayer" instance=ExtResource("6_1a2fg")]
+visible = false

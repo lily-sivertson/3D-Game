@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://77xu3r6n71aq"]
+[gd_scene load_steps=3 format=3 uid="uid://77xu3r6n71aq"]
 
 [ext_resource type="Script" path="res://UI/Main_menu.gd" id="1_mxw3k"]
+[ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_r6fw4"]
 
 [node name="Main_menu" type="Control"]
 layout_mode = 3
@@ -10,3 +11,83 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mxw3k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 300.0
+offset_bottom = 200.0
+text = "Highscore: N/A
+
+"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -70.0
+offset_right = 250.0
+offset_bottom = -30.0
+grow_vertical = 2
+theme = ExtResource("2_r6fw4")
+text = "Play"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -20.0
+offset_right = 250.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = ExtResource("2_r6fw4")
+text = "Info
+"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 250.0
+offset_bottom = 70.0
+grow_vertical = 2
+theme = ExtResource("2_r6fw4")
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 250.0
+offset_bottom = 120.0
+grow_vertical = 2
+theme = ExtResource("2_r6fw4")
+text = "Quit"
