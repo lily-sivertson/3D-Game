@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://leipfht8luvl"
+path="res://.godot/imported/Mystified - Spooky Theme.mp3-128bce8e13d16eed3c9c0444c07695c8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Mystified - Spooky Theme.mp3"
+dest_files=["res://.godot/imported/Mystified - Spooky Theme.mp3-128bce8e13d16eed3c9c0444c07695c8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

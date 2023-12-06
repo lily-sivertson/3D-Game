@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bolxuf10lv7s2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sacn4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vsafv"]
+radius = 0.514145
+height = 1.0384
+
+[node name="Dinah" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.711466, 0, 0, 0, 1, 0, 0.410979, 0)
+mesh = SubResource("SphereMesh_sacn4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0318218, 0.393185, 0.0149869)
+shape = SubResource("CapsuleShape3D_vsafv")

@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_xmibq")
 
 [node name="Panel" type="Panel" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,13 +52,15 @@ offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 863.0
 offset_top = 474.0
 offset_right = 908.0
 offset_bottom = 505.0
 text = "Back"
+alignment = 0
+text_overrun_behavior = 2
 
 [node name="Item" type="Label" parent="."]
 layout_mode = 0
@@ -75,6 +78,7 @@ offset_top = 368.0
 offset_right = 846.0
 offset_bottom = 568.0
 text = "item desc"
+autowrap_mode = 2
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
@@ -92,4 +96,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

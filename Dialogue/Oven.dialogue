@@ -1,0 +1,97 @@
+~ main
+
+Player: Hello!
+Oven: Hi! Isn't it nice in here?
+Player: 
+- Agree
+	Player: Yes, it sure is!
+	- warn them about burning
+		Player: Beware though, if you stay too loong in here you will burn up and die!
+		Oven: Oh dear! Thank you for the warning! We will keep this in mind!
+	
+	- leave
+		Player: Well, I have to go somewhere now, cya around?
+		Oven: Alright! Cya! We'll be chilling here if you need anything from us
+		- leave => END
+		- warn them
+			Player: All right, dont stay too long though! if you do, you could burn up and die!
+			Oven: oh, thank you for letting us know! Bye bye now! => END
+			
+- Disagree
+	Player: no, it is far too hot in here for me. 
+	Oven: you really think so?
+	- yes
+		Player: yes, I dont like the heat. Plus... => cont
+		
+		
+		
+	- no
+		Player: No, I'm just kidding. I love the heat!
+		Oven: that's the spirit! anyways, did you need something else? If not we are going to keep chilling here, or should I say, grilling 
+		- Tell them about the sign => cont
+		
+		- Leave => END
+	- I don't know
+		Player: I don't know. I guess it's okay? => cont
+- Leave
+
+~ cont
+
+Player: I saw a sign by the oven that said not to put it up past 400 degrees.
+Oven: Oh? Why do you think it says that?
+- I'm not sure
+	Oven: well, it's probably not a big deal! anyways, if you have nothing else to say, we are going to keep baking!
+	- Warn them
+		Player: all right, but be careful not to stay too long! 
+		Oven: will do! Cya around! => END
+	- Leave => END
+- I'm not certain, but I have an idea
+	Oven: Oh?
+	Player: It could be that if the oven is above 400, the bread will burn and die
+	Oven: Oh dear! But surely nobody would so something that cruel.
+	- Agree
+		set Global.upd_sanity(3)
+		Player: ... Of course not! Don't worry!
+	- Warn them
+		Player: yes, but you should still be careful! I fyou stay in here to long as well you could burn
+		Oven: all right! thank you for the warning! 
+		Player: you're welcome. => END
+- Brush it off
+	Player: I'm sure it's not a big deal!
+	- propose cruel game idea
+		set Global.upd_sanity(6)
+		Player: Hey, I have an idea! What if we turn the temperature on the oven up to 450 and then see who can stay in the oven the longest? 
+		Oven: [[Hm... I dont know...|Uhm, are you sure its safe?]]
+		- Beg them
+			set Global.upd_sanity(10)
+			Player: Oh c'mon, its just one little game! Don't be such scaredy cats!
+			Oven: alright then... If you're sure
+			- Yes, I'm sure
+				set Global.upd_sanity(6)
+				Player: Yes! It will be fun! here, I'll go change the temp first and judge the game!
+				Oven: Okay!
+				- Increase temp
+					set Global.upd_sanity(15)
+					=> END
+				- leave and do something else => END
+			- No, I'm not sure
+				Player: Actually, I'm not really sure...
+				Oven: Okay, well if you are later then maybe we can do it then?
+				Player: Okay!
+				- leave => END
+				- warn them
+					Player: anyways, you should be careful, if you stay here too long, you may burn!
+					Oven: Thanks for the warning! Cya! => END
+			
+		- drop the idea
+			Player: I guess it could be risky... Nevermind then
+		
+	- warn them
+		Player: Still, you should be careful! Don't stay in here too long!
+		Oven: Will do! Anyways, we're gonna keep chilling, cya around though!
+	- leave
+		set Global.upd_sanity(3)
+		Player: Anyways, I am going to leave now, cya' around! => END
+	
+
+=> END

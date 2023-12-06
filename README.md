@@ -10,7 +10,26 @@ This game was created in Godot 4.1.1
 
 ## References
 The shotgun model is from the [Weapon Pack](https://kenney.nl/assets/weapon-pack) at kenney.nl.
+
+Music: 
+	
+ - [Spooky Theme](https://freemusicarchive.org/music/Mystified/Traveller_Soundtrack_Selections/03_mystified_-_spooky_theme/) by Mystified, licensed CC BY-NC-SA from Free Music Archive
+ - [Snow](https://freemusicarchive.org/music/crowander/electronic-fragments/snow/) by Crowander, licensed (CC BY-NC) from Free Music Archive
+ - [Lurking Beneath the Surface](https://freemusicarchive.org/music/Daniel_Birch__Ben_Pegley/2017121491356488/Lurking_Beneath_the_Surface/) by Daniel Birch and Ben Pegley, licensed (CC BY-NC) from Free Music Archive
+ - [Lurking Danger](https://freemusicarchive.org/music/vasyl-sakal/horror-music-box-1/lurking-danger/) by Vasyl Sakal, licensed CC BY-SA from Free Music Archive
+
+Sound Effects: 
+	
+ - The Item collect sound is [Diamond Collect](https://freesound.org/people/Arcana23/sounds/685660/) by Arcana23 at Freesound.org
+
 ## Future Development
+- sound effects
+- polish
+- Dialogue
+- music
+- sanity
+
+
 
 ## Created by
 Lily Sivertson

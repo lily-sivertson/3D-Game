@@ -1,0 +1,74 @@
+~ main
+
+Player: [[Hello|Hey]]!
+Sink: Oh hi! Thank goodness you're here! I need your help!
+Player: 
+- Ask for more information
+	Player: What do you need help with?
+	Sink: I was exporing with my friend earlier when I fell down into this sink and got a rip. I am unable to get out of the sink on my own. Could you please help me?
+	Player: 
+	- Of Course!
+		Player: How can I help you?
+		Sink: okay so I just need you to carry me out! You can leave me on the counter once were out!
+		Player: No Problem!
+		set Global.upd_ends("h")
+		=> END 
+	- What happened to your friend? 
+		Sink: Dinah? She fell down into the drain... I really hope she's okay...
+		Sink: Anyways, can you please help? I'm worried someone is going to come and turn the water on and I'll die in here!
+		Player: ...
+		- Help
+			Player: Okay! C'mon, i'll carry you out... 
+			set Global.upd_ends("h")
+			=> END
+		- Leave
+			Player: No. I don't really care to help someone like you. Good luck getting out of here, I guess. You're gonna need it.
+			set Global.upd_sanity(6)
+			Sink: Ah... you didn't have to lead me on like that...
+			Player: 
+			- Ignore => END
+			- Snap back 
+				Player: Look. It's not my fault that you got yourself stuck in this sink. Why should I care at all about you? You claim that your friend fell in the drain but honestly I don't even believe you!
+				Sink: ...
+				set Global.upd_sanity(5)
+				Player: You probably pushed her into the drain or something! Or maybe, you ate her in an attempt to gain energy to escape this place.
+				Sink: But-
+				Player: No. I don't want to waste my time with you anymore. Goodbye.
+				=> END
+			
+		
+		- Make excuses
+			Player: Actually, I just remembered I have this really important event to go to...
+			Player: Maybe I can help you after?
+			set Global.upd_sanity(1)
+			Sink: ah okay... I'll just keep waiting then...
+			Sink: I hope nobody turns the water on in the meantime..
+			=> END
+			
+	- ... I dont know...
+		Sink: come on, please? I've been stuck down here for ages... thankfully nobody has turned on the water yet. If they plugged the Drain, I would surely die!
+		Sink: I know it's a lot to ask but I would really appreciate your help
+		Player: 
+		- Okay... I'll help!
+		- No, I'm sorry but I can't
+		- Get Lost!
+			Player: Pft, you think I'd actually help you? It's a pity nobody has turned the water on yet. It would be better that way with you gone
+			Sink: oh...
+			Player: Bye bye!
+			set Global.upd_sanity(6)
+			=> END
+- Leave
+	Player: You think I would want to help a peasant like you?? In your dreams. 
+	set Global.upd_sanity(6)
+	Sink: Fine, there was no need to be rude...
+	=> END
+- Excuse yourself
+	Player: Sorry, I'm actually kind of busy right now... rain check?
+	Sink: Oh... Ok...
+	Sink: I'll just keep waiting then... 
+	set Global.upd_sanity(2)
+	=> END
+
+
+
+=> END

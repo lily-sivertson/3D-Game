@@ -1,0 +1,56 @@
+~ main
+Player: [[Hello|Hi]]!
+
+Toaster: Hey! How are you?
+Player: Uhm....
+- I'm good! And you?
+- I
+
+insert maniacal laughter upon saying spmething like "its almost like you forgot that we woke up here today. and the yesterday, and the day before yesterday, and the day before the day before.AhahahHhaHahHaHAahHA"
+
+
+- Yes, actually I was wondering if you could tell me where I am?
+	Toaster: Where we always are, duh
+	Player: ... What do you mean by that?
+	Toaster: You know exactly where we are.
+	Player: No... I don't...
+	Toaster: Haha, very funny. Next thing you know you're going to be saying that you don't know who I am.
+	Player: ... But i'm not joking...
+	Toaster: ...
+	Toaster: Are you serious right now?
+	Player: of COURSE I am!! Why would I joke about something like this??!! Please just help me... I can't remember anything...
+	=> explanation
+- Yes, who are you?
+	Toaster: Haha, funny joke, pretending like you dont know me, your best friend!
+	Player: ...
+	- But I don't.
+		Toaster: Gosh, you are just so funny! 
+		Player: ...
+		Toaster: Wait... are you being serious?!
+		Player: ...
+		- Yes. I really don't know you, or where I am, or anything...
+		
+		- Nah, I was just messing around with you! 
+- Start Again => main
+- Nope! I think im fine! => END
+
+~ explanation
+Toaster: ... This is bad ... this is really bad...
+Player: ...
+- W-what do you mean? Is something wrong?
+	Toaster: I... I don't think you want to know...
+	Player: !!
+	- Of course I want to know!!
+	- OK then, have it your way. I don't need info from a stranger anyways!
+		Toaster: Wait!! Please... I'm not trying to be rude... I just... don't want to lose another friend
+		Player: what do you mean?
+		Toaster: are you sure that you want to know?
+		Player: ...
+		- Yes, tell me everything.
+			Toaster: Very well then. You are on the counter. You woke up here today, just the same as yesterday... and the day before yesterday, and the day before the day before yesterday...
+			Player: ... that's not ominous at all
+			Toaster:
+		- ... I don't know ...
+			set Global.poof()
+	
+=> END

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bihdc7xg3klqf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xbdfi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik31t"]
+albedo_color = Color(0, 0.470588, 0.576471, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qpk4v"]
+
+[node name="Oven" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xbdfi")
+surface_material_override/0 = SubResource("StandardMaterial3D_ik31t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qpk4v")

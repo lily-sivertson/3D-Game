@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_a2krx"]
 
 [node name="Pause_menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +47,24 @@ offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="main_menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_a2krx")
+text = "Main Menu
+"
+
+[node name="quit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,29 +74,14 @@ anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -20.0
 offset_right = 100.0
-offset_bottom = 11.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Main Menu
-"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 26.0
-offset_right = 100.0
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("2_a2krx")
 text = "Quit
 "
 
-[node name="Label2" type="Label" parent="."]
+[node name="pause" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,3 +95,16 @@ offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Pause"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 462.0
+offset_right = 850.0
+offset_bottom = 502.0
+text = "Back
+"
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

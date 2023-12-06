@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp8huqnidjbsc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckew4"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_md38d"]
+material = SubResource("StandardMaterial3D_ckew4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ostd4"]
+albedo_color = Color(0.145098, 0.431373, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm7cj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wg3b0"]
+height = 3.97126
+radius = 2.5
+
+[node name="Toaster" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00772119, -0.00800407, 0.00582981)
+mesh = SubResource("BoxMesh_md38d")
+surface_material_override/0 = SubResource("StandardMaterial3D_ostd4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234534, 0.459793, 0.955738)
+shape = SubResource("BoxShape3D_xm7cj")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489173, 0)
+shape = SubResource("CylinderShape3D_wg3b0")

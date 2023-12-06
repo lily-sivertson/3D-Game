@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl74ittfrnt40"]
+
+[ext_resource type="Script" path="res://UI/Info.gd" id="1_afw0i"]
+[ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="1_u2kem"]
+
+[node name="Info" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afw0i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u2kem")
+
+[node name="Binds" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Keybinds" type="Label" parent="Panel/Binds"]
+layout_mode = 2
+offset_left = 294.0
+offset_top = 97.0
+offset_right = 541.0
+offset_bottom = 331.0
+text = "w   -> Forward
+A   -> Left
+S   -> Back
+D   -> Right
+Esc   -> Menu
+I   -> Inventory ( still in progress)
+Space   -> Jump
+Left arrow   -> left turn
+Right Arrow   -> right turn"
+
+[node name="Label2" type="Label" parent="Panel/Binds"]
+layout_mode = 2
+offset_left = 359.0
+offset_top = 32.0
+offset_right = 430.0
+offset_bottom = 58.0
+text = "Keybinds"
+
+[node name="Story" type="Control" parent="Panel"]
+visible = false
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 100.0
+offset_right = 86.0
+offset_bottom = 140.0
+
+[node name="Title" type="Label" parent="Panel/Story"]
+layout_mode = 2
+offset_left = 313.0
+offset_top = -68.0
+offset_right = 384.0
+offset_bottom = -42.0
+text = "Story"
+
+[node name="monologue" type="Label" parent="Panel/Story"]
+layout_mode = 2
+offset_left = 248.0
+offset_top = -3.0
+offset_right = 495.0
+offset_bottom = 231.0
+text = "You wake up on the counter as a piece of bread, as you did the day before, and the day before that, and the day before that....
+You want to get out of this bakery and be sold, no matter the costs"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Panel"]
+visible = false
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 100.0
+offset_right = 86.0
+offset_bottom = 140.0
+
+[node name="cred" type="Label" parent="Panel/Control"]
+layout_mode = 2
+offset_left = 313.0
+offset_top = -68.0
+offset_right = 384.0
+offset_bottom = -42.0
+text = "Credits"
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 100.0
+offset_right = 246.0
+offset_bottom = 350.0
+item_count = 3
+item_0/text = "Keybinds"
+item_1/text = "Story"
+item_2/text = "Credits"
+
+[node name="Back" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 353.0
+offset_right = 567.0
+offset_bottom = 384.0
+text = "Back"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 87.0
+offset_bottom = 52.0
+text = "Info"
+
+[connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]

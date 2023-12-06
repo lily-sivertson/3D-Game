@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://77xu3r6n71aq"]
+[gd_scene load_steps=9 format=3 uid="uid://77xu3r6n71aq"]
 
 [ext_resource type="Script" path="res://UI/Main_menu.gd" id="1_mxw3k"]
+[ext_resource type="Texture2D" uid="uid://cvqk8dagbmvds" path="res://Assets/bread shop.png" id="2_0u83j"]
 [ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_r6fw4"]
+[ext_resource type="PackedScene" uid="uid://bl74ittfrnt40" path="res://UI/Info.tscn" id="3_4ojih"]
+[ext_resource type="Texture2D" uid="uid://brfhayuu4bl27" path="res://Assets/snow.png" id="3_gx4tg"]
+[ext_resource type="AudioStream" uid="uid://c4ravspswoeqr" path="res://Assets/Crowander - Snow.mp3" id="4_t7i0m"]
+
+[sub_resource type="Gradient" id="Gradient_m0rdf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.376471)
+
+[sub_resource type="Curve" id="Curve_42gri"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.549451, 155.789), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Main_menu" type="Control"]
 layout_mode = 3
@@ -19,6 +31,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_0u83j")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(575, -88)
+amount = 20
+lifetime = 2.0
+preprocess = 2.0
+speed_scale = 0.5
+explosiveness = 0.05
+randomness = 0.06
+texture = ExtResource("3_gx4tg")
+emission_shape = 3
+emission_rect_extents = Vector2(700, 1)
+spread = 53.69
+gravity = Vector2(0, 500)
+angular_velocity_min = -29.09
+angular_velocity_max = 29.09
+radial_accel_min = -49.5
+radial_accel_max = 38.38
+angle_min = -58.2
+angle_max = 87.3
+color_ramp = SubResource("Gradient_m0rdf")
+anim_speed_curve = SubResource("Curve_42gri")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -26,7 +61,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 300.0
 grow_vertical = 2
-color = Color(0, 0, 0, 0.501961)
+color = Color(0.156863, 0.109804, 0.25098, 0.501961)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -91,3 +126,16 @@ offset_bottom = 120.0
 grow_vertical = 2
 theme = ExtResource("2_r6fw4")
 text = "Quit"
+
+[node name="Info" parent="." instance=ExtResource("3_4ojih")]
+visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t7i0m")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

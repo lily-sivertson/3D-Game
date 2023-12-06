@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://brc26evtew0n6"
+path="res://.godot/imported/Toaster.dialogue-60335944e133af3cddbdbf485618470e.tres"
+
+[deps]
+
+source_file="res://Dialogue/Toaster.dialogue"
+dest_files=["res://.godot/imported/Toaster.dialogue-60335944e133af3cddbdbf485618470e.tres"]
+
+[params]
+
+defaults=true
