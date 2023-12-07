@@ -2,6 +2,7 @@ extends Control
 
 
 func ready():
+	#Control.MOUSE_FILTER_PASS
 	pass
 
 	

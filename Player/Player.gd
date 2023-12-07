@@ -1,14 +1,15 @@
 extends CharacterBody3D
 
 
+
 const Balloon = preload("res://Dialogue/balloon.tscn")
 var played=false
 var interactable=false
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 4.0
+const JUMP_VELOCITY = 3
 const MOUSE_SENSITIVITY = 0.001
-const MOUSE_RANGE = 1.2
+const MOUSE_RANGE = 1.5
 var turning=.005
 var words= ""
 var bod=""
@@ -22,16 +23,14 @@ func _unhandled_input(event):
 		get_tree().current_scene.add_child(balloon)
 		balloon.start(load(words), "main")
 		interactable=false
-
-'''func _unhandled_input(event):
-	# if the mouse has moved
-	if event is InputEventMouseMotion:
+	elif event is InputEventMouseMotion:
+	
 		# up-down motion, applied to the $Pivot
 		$Pivot.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		# make sure we can't look inside ourselves :)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
 		# left-right motion, applied to the Player
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)'''
+		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 
 
 

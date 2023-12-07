@@ -32,8 +32,9 @@ Player:
 		
 		- Leave => END
 	- I don't know
-		Player: I don't know. I guess it's okay? => cont
-- Leave
+		Player: I don't know. I guess it's okay? 
+		=> cont
+- Leave => END
 
 ~ cont
 

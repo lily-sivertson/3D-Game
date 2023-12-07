@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8p2kwrhet5kt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3sadf"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xl2po"]
+size = Vector3(1, 1, 0.0512613)
+
+[node name="Tile0" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="E" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 0, 1)
+mesh = SubResource("BoxMesh_3sadf")
+
+[node name="E_col" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 1)
+shape = SubResource("BoxShape3D_xl2po")
+
+[node name="S" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 0.05, 0, 1, 0, -1, 0, -2.18557e-09, -1, 0, 4.37114e-08)
+mesh = SubResource("BoxMesh_3sadf")
+skeleton = NodePath("")
+
+[node name="S_col" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1, 0, 4.37114e-08)
+shape = SubResource("BoxShape3D_xl2po")
+
+[node name="W" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -4.37114e-09, 0, 1, 0, 8.74228e-08, 0, -0.05, -8.74228e-08, 0, -1)
+mesh = SubResource("BoxMesh_3sadf")
+skeleton = NodePath("")
+
+[node name="W_col" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -8.74228e-08, 0, -1)
+shape = SubResource("BoxShape3D_xl2po")
