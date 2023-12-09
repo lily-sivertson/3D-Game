@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://4l6qbles6bxl"]
+
+[ext_resource type="Script" path="res://map materials/Drips.gd" id="1_s88a8"]
+[ext_resource type="AudioStream" uid="uid://ddiidyj4y36o5" path="res://map materials/drip 1.wav" id="2_ytvm0"]
+
+[node name="Drips" type="Node3D"]
+script = ExtResource("1_s88a8")
+
+[node name="Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ytvm0")
+max_distance = 15.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,6 +21,7 @@ Music:
 Sound Effects: 
 	
  - The Item collect sound is [Diamond Collect](https://freesound.org/people/Arcana23/sounds/685660/) by Arcana23 at Freesound.org
+ - The [water drip sound](https://freesound.org/people/roscoetoon/sounds/27151/) is from Roscoetoon at freesound.org
 
 ## Future Development
 - sound effects

@@ -34,7 +34,7 @@ var tiles = [
 ]
 
 var tile_size = 2 						# 2-meter tiles
-var width = 20  						# width of map (in tiles)
+var width = 15  						# width of map (in tiles)
 var height = 12  						# height of map (in tiles)
 
 func _ready():
@@ -75,6 +75,8 @@ func make_maze():
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
+		map[0][0] &= 12       # remove the north wall
+		map[width-1][height-1] &= 11    # remove the south wall
 	for x in range(width):
 		for z in range(height):
 			var tile = tiles[map[x][z]].instantiate()

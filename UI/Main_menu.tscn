@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://77xu3r6n71aq"]
 
 [ext_resource type="Script" path="res://UI/Main_menu.gd" id="1_mxw3k"]
-[ext_resource type="Texture2D" uid="uid://cvqk8dagbmvds" path="res://Assets/bread shop.png" id="2_0u83j"]
+[ext_resource type="Texture2D" uid="uid://efo6wcculq22" path="res://Assets/bread shop recolor.png" id="2_nuhcc"]
 [ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_r6fw4"]
 [ext_resource type="PackedScene" uid="uid://bl74ittfrnt40" path="res://UI/Info.tscn" id="3_4ojih"]
 [ext_resource type="Texture2D" uid="uid://brfhayuu4bl27" path="res://Assets/snow.png" id="3_gx4tg"]
@@ -31,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0u83j")
+texture = ExtResource("2_nuhcc")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(575, -88)

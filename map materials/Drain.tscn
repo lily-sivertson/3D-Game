@@ -1,0 +1,154 @@
+[gd_scene load_steps=22 format=3 uid="uid://cae2lqbenv4fa"]
+
+[ext_resource type="Script" path="res://map materials/Drain.gd" id="1_hbreq"]
+[ext_resource type="PackedScene" uid="uid://d33lbbr5pcrcg" path="res://UI/HUD.tscn" id="2_lk2xt"]
+[ext_resource type="PackedScene" uid="uid://c75lxssi5rtdg" path="res://UI/Flash.tscn" id="3_a3ns4"]
+[ext_resource type="PackedScene" uid="uid://be0rukoiq6ith" path="res://UI/Inv.tscn" id="4_qbx3f"]
+[ext_resource type="PackedScene" uid="uid://dhvaqilelkuwk" path="res://UI/Pause_menu.tscn" id="5_hqtx8"]
+[ext_resource type="Shader" path="res://UI/Sky.gdshader" id="6_ss2em"]
+[ext_resource type="PackedScene" uid="uid://bolxuf10lv7s2" path="res://NPCs/Dinah.tscn" id="7_pb5w0"]
+[ext_resource type="AudioStream" uid="uid://b8kgltv06oid5" path="res://Assets/685660__arcana23__diamond-collect.wav" id="8_1unqm"]
+[ext_resource type="PackedScene" uid="uid://bwmrqe4ihklub" path="res://Enemies/Slime.tscn" id="9_h2tm7"]
+[ext_resource type="PackedScene" uid="uid://t6oj6uoj6t4a" path="res://Maze/maze.tscn" id="10_ar6kj"]
+[ext_resource type="AudioStream" uid="uid://leipfht8luvl" path="res://Assets/Mystified - Spooky Theme.mp3" id="11_avmln"]
+[ext_resource type="AudioStream" uid="uid://by3lyrnltl0j5" path="res://Assets/water_drip.wav" id="12_460jf"]
+[ext_resource type="PackedScene" uid="uid://bol6q2kmec88g" path="res://Player/player.tscn" id="13_dcebq"]
+[ext_resource type="PackedScene" uid="uid://4l6qbles6bxl" path="res://map materials/Drips.tscn" id="14_o17kr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0q1f"]
+shader = ExtResource("6_ss2em")
+shader_parameter/color_top = Color(0.91, 0.14, 1, 1)
+shader_parameter/color_horizon = Color(1, 0.4, 0.42, 1)
+shader_parameter/color_bottom = Color(1, 0.74, 0.39, 1)
+shader_parameter/exponent_factor_top = 1.0
+shader_parameter/exponent_factor_bottom = 1.0
+shader_parameter/intensity_amp = 1.0
+
+[sub_resource type="Sky" id="Sky_6wdbm"]
+sky_material = SubResource("ShaderMaterial_x0q1f")
+
+[sub_resource type="Environment" id="Environment_qrbop"]
+background_mode = 1
+background_color = Color(0.368627, 0.345098, 0.352941, 1)
+sky = SubResource("Sky_6wdbm")
+ambient_light_source = 2
+ambient_light_color = Color(0.196078, 0.501961, 0.560784, 1)
+ambient_light_energy = 1.01
+reflected_light_source = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.12
+volumetric_fog_albedo = Color(0.94902, 0.94902, 0.94902, 1)
+volumetric_fog_emission = Color(0.4, 0.411765, 0.521569, 1)
+volumetric_fog_sky_affect = 0.913
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qil84"]
+size = Vector3(69.0699, 12.7889, 53.8341)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orf6x"]
+albedo_color = Color(0.184314, 0.298039, 0.313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nulg4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyyas"]
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(1, 0.000170591, -0.000261003, -0.000170541, 1, 0.000279722, 0.000261035, -0.000279692, 1, 0, 0, 0)
+script = ExtResource("1_hbreq")
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="HUD" parent="UI" instance=ExtResource("2_lk2xt")]
+mouse_filter = 1
+
+[node name="Flash" parent="UI" instance=ExtResource("3_a3ns4")]
+visible = false
+
+[node name="Inv" parent="UI" instance=ExtResource("4_qbx3f")]
+process_mode = 3
+visible = false
+
+[node name="Pause_menu" parent="UI" instance=ExtResource("5_hqtx8")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qrbop")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
+
+[node name="Items" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
+
+[node name="NPCs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
+
+[node name="Dinah" parent="NPCs" instance=ExtResource("7_pb5w0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9507, -10.4811, 5.67046)
+
+[node name="Collect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1unqm")
+
+[node name="Slime" parent="." instance=ExtResource("9_h2tm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138179, 8.4745, 18.7345)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 5.13865e-11, 0, -2.77396e-11, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999999, 5.75334e-10, 0, -2.89596e-10, 0.999999, 0, 0, 0, 0.999998, 24.5914, 6.19411, 20.813)
+shape = SubResource("BoxShape3D_qil84")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_avmln")
+autoplay = true
+
+[node name="fog2" type="MeshInstance3D" parent="."]
+transform = Transform3D(88.9372, 4.99718e-10, 1.30385e-08, -3.13812e-08, 1.00004, 1.49012e-08, -5.21541e-08, 1.16415e-10, 59.7916, 39.796, -0.66406, 17.6521)
+material_override = SubResource("StandardMaterial3D_orf6x")
+transparency = 0.55
+mesh = SubResource("BoxMesh_nulg4")
+surface_material_override/0 = SubResource("StandardMaterial3D_wyyas")
+
+[node name="fog" type="MeshInstance3D" parent="."]
+transform = Transform3D(88.9268, 8.7968e-10, 1.11759e-08, -3.43439e-08, 1.51462, -1.30385e-08, -6.14673e-08, 5.82077e-10, 59.8031, 39.796, -0.512526, 17.6521)
+material_override = SubResource("StandardMaterial3D_orf6x")
+transparency = 0.71
+mesh = SubResource("BoxMesh_nulg4")
+surface_material_override/0 = SubResource("StandardMaterial3D_wyyas")
+
+[node name="Water drops" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_460jf")
+volume_db = -10.307
+autoplay = true
+
+[node name="maze" parent="." instance=ExtResource("10_ar6kj")]
+transform = Transform3D(2, 2.26919e-10, 0, -1.13673e-10, 3, 0, 0, 0, 2, 2.00958e-05, -0.117852, -3.29674e-05)
+
+[node name="Player" parent="." instance=ExtResource("13_dcebq")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.47285, 0)
+
+[node name="water drops" type="Node3D" parent="."]
+
+[node name="Drips" parent="water drops" instance=ExtResource("14_o17kr")]
+transform = Transform3D(0.999999, 2.84246e-10, 0, -1.44119e-10, 0.999999, 0, 0, 0, 0.999999, 10.3678, 1.71062, 7.61762)
+
+[node name="Drips2" parent="water drops" instance=ExtResource("14_o17kr")]
+transform = Transform3D(0.999999, 4.00682e-10, 0, -2.02313e-10, 0.999999, 0, 0, 0, 0.999998, 19.9157, 1.70765, 24.0272)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.335941, 0.760798, -0.555274, -0.000210489, 0.589476, 0.807786, 0.941883, 0.271485, -0.197869, -1.55984, 3.22089, -1.00201)
+light_color = Color(0.843137, 0.866667, 0.94902, 1)
+light_energy = 6.303
+light_indirect_energy = 1.162
+light_volumetric_fog_energy = 3.101
+light_specular = 1.47
+spot_range = 5.25984
+spot_angle = 17.3781
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

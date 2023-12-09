@@ -1,12 +1,13 @@
 extends CharacterBody3D
 
 
-
+var Bullet= load("res://Player/Bullet.tscn")
 const Balloon = preload("res://Dialogue/balloon.tscn")
 var played=false
 var interactable=false
 
-const SPEED = 4.0
+var Weapons
+const SPEED = 4.5
 const JUMP_VELOCITY = 3
 const MOUSE_SENSITIVITY = 0.001
 const MOUSE_RANGE = 1.5
@@ -31,8 +32,23 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
 		# left-right motion, applied to the Player
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-
-
+	
+	'''if event.is_action_pressed("shoot"):
+		Weapons= get_node_or_null("/root/Game/Weapons")
+		if Weapons!=null:
+			
+			if $Pivot/gun/path.is_colliding():
+				var bullet= Bullet.instantiate()
+				bullet.global_position= $Pivot/gun/aim.global_position
+				var target= $Pivot/gun/path.get_collision_point()
+				#var point= bullet.global_position.direction_to(target).normalized()
+				bullet.set_direction(bullet.global_position).direction_to(target).normalized()#
+				Weapons.add_child(bullet)
+			else:
+				print("it is not colliding")
+			var target =event.position 
+			var direct_to_m= bullet.global_position.direction_to(target).normalized()
+			bullet.set_direction(direct_to_m)'''
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -46,7 +62,7 @@ func _physics_process(delta):
 		rotate_y(5*turning)
 	if Input.is_action_pressed("right-turn"):
 		rotate_y(-5*turning)
-		
+
 		
 
 	# Get the input direction and handle the movement/deceleration.
@@ -76,3 +92,7 @@ func _on_area_3d_body_exited(body):
 	if body.get_parent().name=="NPCs":
 		interactable=false
 		print("no")
+		
+		
+		
+	

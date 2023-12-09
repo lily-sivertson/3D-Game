@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwmrqe4ihklub"]
+[gd_scene load_steps=12 format=3 uid="uid://bwmrqe4ihklub"]
 
 [ext_resource type="Script" path="res://Enemies/Slime.gd" id="1_laoge"]
 
@@ -44,6 +44,8 @@ roughness = 0.27
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3nh3b"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_01j63"]
+
 [sub_resource type="Animation" id="Animation_jk4hh"]
 resource_name = "pCube1|Take 001|BaseLayer_002"
 length = 1.66667
@@ -83,9 +85,15 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_c0p4p")
 
 [node name="Coll" type="Area3D" parent="pCube1"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pCube1/Coll"]
 shape = SubResource("BoxShape3D_3nh3b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pCube1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pCube1/StaticBody3D"]
+shape = SubResource("BoxShape3D_01j63")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "pCube1|Take 001|BaseLayer_002"
