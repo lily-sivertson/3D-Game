@@ -1,16 +1,108 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://57f5meadx3qk"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://57f5meadx3qk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w0cl"]
-bg_color = Color(0, 0, 0, 0.592157)
+[ext_resource type="FontFile" uid="uid://b20vmhtkm8qs3" path="res://UI/ZeroCool.ttf" id="1_irtx3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_virdn"]
+bg_color = Color(0.715401, 0.275235, 0.559177, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.560784, 0.14902, 0.380392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p42q8"]
+bg_color = Color(0.376471, 0.113725, 0.286275, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.560784, 0.14902, 0.380392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3d80"]
+bg_color = Color(0.894118, 0.533333, 0.803922, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.67451, 0.243137, 0.533333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3puq5"]
+bg_color = Color(0.715401, 0.275235, 0.559177, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.560784, 0.14902, 0.380392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtb8e"]
+bg_color = Color(0.376471, 0.113725, 0.286275, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.560784, 0.14902, 0.380392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcm5l"]
+bg_color = Color(0.513726, 0.14902, 0.407843, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w443p"]
+bg_color = Color(0.25098, 0.054902, 0.180392, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.0941176, 0.0941176, 0.0941176, 0.670588)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+border_color = Color(0.933333, 0.835294, 0.866667, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cg7l"]
+bg_color = Color(0.866667, 0.611765, 0.772549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv64v"]
+bg_color = Color(0.545098, 0.0745098, 0.384314, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.867142, 0.612306, 0.774312, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [resource]
-Panel/styles/panel = SubResource("StyleBoxFlat_5w0cl")
+Button/fonts/font = ExtResource("1_irtx3")
+Button/styles/disabled = SubResource("StyleBoxFlat_virdn")
+Button/styles/focus = SubResource("StyleBoxFlat_p42q8")
+Button/styles/hover = SubResource("StyleBoxFlat_f3d80")
+Button/styles/normal = SubResource("StyleBoxFlat_3puq5")
+Button/styles/pressed = SubResource("StyleBoxFlat_mtb8e")
+ItemList/colors/font_color = Color(0.945098, 0.8, 0.878431, 1)
+ItemList/font_sizes/font_size = 16
+ItemList/fonts/font = ExtResource("1_irtx3")
+ItemList/styles/panel = SubResource("StyleBoxFlat_kcm5l")
+Label/fonts/font = ExtResource("1_irtx3")
+Panel/styles/panel = SubResource("StyleBoxFlat_w443p")
+ProgressBar/fonts/font = ExtResource("1_irtx3")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2cg7l")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kv64v")

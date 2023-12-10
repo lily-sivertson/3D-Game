@@ -21,4 +21,7 @@ func _on_inventory_pressed():
 	Pause_menu.global_position=Vector2(1152,576)
 	Inventory.reset()
 	Inventory.show()
+
+
+
 	

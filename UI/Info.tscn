@@ -28,9 +28,11 @@ grow_vertical = 2
 theme = ExtResource("1_u2kem")
 
 [node name="Binds" type="Control" parent="Panel"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("1_u2kem")
 
 [node name="Keybinds" type="Label" parent="Panel/Binds"]
 layout_mode = 2
@@ -38,6 +40,7 @@ offset_left = 294.0
 offset_top = 97.0
 offset_right = 541.0
 offset_bottom = 331.0
+theme = ExtResource("1_u2kem")
 text = "w   -> Forward
 A   -> Left
 S   -> Back
@@ -54,6 +57,8 @@ offset_left = 359.0
 offset_top = 32.0
 offset_right = 430.0
 offset_bottom = 58.0
+theme = ExtResource("1_u2kem")
+theme_override_font_sizes/font_size = 25
 text = "Keybinds"
 
 [node name="Story" type="Control" parent="Panel"]
@@ -63,6 +68,7 @@ offset_left = 46.0
 offset_top = 100.0
 offset_right = 86.0
 offset_bottom = 140.0
+theme = ExtResource("1_u2kem")
 
 [node name="Title" type="Label" parent="Panel/Story"]
 layout_mode = 2
@@ -70,6 +76,8 @@ offset_left = 313.0
 offset_top = -68.0
 offset_right = 384.0
 offset_bottom = -42.0
+theme = ExtResource("1_u2kem")
+theme_override_font_sizes/font_size = 25
 text = "Story"
 
 [node name="monologue" type="Label" parent="Panel/Story"]
@@ -78,17 +86,18 @@ offset_left = 248.0
 offset_top = -3.0
 offset_right = 495.0
 offset_bottom = 231.0
+theme = ExtResource("1_u2kem")
 text = "You wake up on the counter as a piece of bread, as you did the day before, and the day before that, and the day before that....
 You want to get out of this bakery and be sold, no matter the costs"
 autowrap_mode = 2
 
 [node name="Control" type="Control" parent="Panel"]
-visible = false
 anchors_preset = 0
 offset_left = 46.0
 offset_top = 100.0
 offset_right = 86.0
 offset_bottom = 140.0
+theme = ExtResource("1_u2kem")
 
 [node name="cred" type="Label" parent="Panel/Control"]
 layout_mode = 2
@@ -96,7 +105,19 @@ offset_left = 313.0
 offset_top = -68.0
 offset_right = 384.0
 offset_bottom = -42.0
+theme = ExtResource("1_u2kem")
+theme_override_font_sizes/font_size = 25
 text = "Credits"
+
+[node name="peole" type="Label" parent="Panel/Control"]
+layout_mode = 2
+offset_left = 248.0
+offset_top = -3.0
+offset_right = 495.0
+offset_bottom = 231.0
+theme = ExtResource("1_u2kem")
+text = "Map and Assets: DarkThund3r"
+autowrap_mode = 2
 
 [node name="ItemList" type="ItemList" parent="Panel"]
 layout_mode = 0
@@ -104,17 +125,19 @@ offset_left = 46.0
 offset_top = 100.0
 offset_right = 246.0
 offset_bottom = 350.0
+theme = ExtResource("1_u2kem")
 item_count = 3
-item_0/text = "Keybinds"
-item_1/text = "Story"
-item_2/text = "Credits"
+item_0/text = "  Keybinds"
+item_1/text = "  Story"
+item_2/text = "  Credits"
 
 [node name="Back" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 522.0
-offset_top = 353.0
-offset_right = 567.0
-offset_bottom = 384.0
+offset_left = 439.0
+offset_top = 328.0
+offset_right = 564.0
+offset_bottom = 368.0
+theme = ExtResource("1_u2kem")
 text = "Back"
 
 [node name="Label" type="Label" parent="Panel"]
@@ -123,6 +146,8 @@ offset_left = 47.0
 offset_top = 26.0
 offset_right = 87.0
 offset_bottom = 52.0
+theme = ExtResource("1_u2kem")
+theme_override_font_sizes/font_size = 25
 text = "Info"
 
 [connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]

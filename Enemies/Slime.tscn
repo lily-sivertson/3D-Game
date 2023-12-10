@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwmrqe4ihklub"]
+[gd_scene load_steps=15 format=3 uid="uid://bwmrqe4ihklub"]
 
 [ext_resource type="Script" path="res://Enemies/Slime.gd" id="1_laoge"]
+[ext_resource type="AudioStream" uid="uid://djdlnaiguulu4" path="res://Enemies/slime_land.wav" id="2_4bh8n"]
+[ext_resource type="AudioStream" uid="uid://dq71sujwcl2ei" path="res://Enemies/Slime_sounds.mp3" id="3_6gv5a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4wub"]
 resource_name = "standardSurface1.002"
@@ -47,9 +49,8 @@ roughness = 0.27
 [sub_resource type="BoxShape3D" id="BoxShape3D_01j63"]
 
 [sub_resource type="Animation" id="Animation_jk4hh"]
-resource_name = "pCube1|Take 001|BaseLayer_002"
+resource_name = "jump"
 length = 1.66667
-loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -67,7 +68,7 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0.538727, 0.538727, 0.424618, 0.1, 1, 0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2v4ol"]
 _data = {
-"pCube1|Take 001|BaseLayer_002": SubResource("Animation_jk4hh")
+"jump": SubResource("Animation_jk4hh")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l33ec"]
@@ -75,7 +76,15 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_ngoj2"]
 radius = 5.56962
 
+[sub_resource type="Curve3D" id="Curve3D_583qg"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+
 [node name="Slime" type="CharacterBody3D"]
+collision_mask = 9
 script = ExtResource("1_laoge")
 
 [node name="pCube1" type="MeshInstance3D" parent="."]
@@ -86,6 +95,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c0p4p")
 
 [node name="Coll" type="Area3D" parent="pCube1"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pCube1/Coll"]
 shape = SubResource("BoxShape3D_3nh3b")
@@ -96,7 +106,7 @@ shape = SubResource("BoxShape3D_3nh3b")
 shape = SubResource("BoxShape3D_01j63")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-autoplay = "pCube1|Take 001|BaseLayer_002"
+autoplay = "jump"
 libraries = {
 "": SubResource("AnimationLibrary_2v4ol")
 }
@@ -106,8 +116,32 @@ transform = Transform3D(0.584461, 0, 0, 0, 0.584461, 0, 0, 0, 0.584461, 0, 0.364
 shape = SubResource("BoxShape3D_l33ec")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_ngoj2")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_583qg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="land" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_4bh8n")
+
+[node name="jump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_6gv5a")
+volume_db = 1.0
+unit_size = 1.0
+max_db = 6.0
+max_distance = 20.0
+
+[connection signal="body_entered" from="pCube1/Coll" to="." method="_on_coll_body_entered"]
+[connection signal="input_event" from="pCube1/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

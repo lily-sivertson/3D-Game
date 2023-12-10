@@ -35,7 +35,6 @@ ambient_light_source = 2
 ambient_light_color = Color(0.196078, 0.501961, 0.560784, 1)
 ambient_light_energy = 1.01
 reflected_light_source = 2
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.12
 volumetric_fog_albedo = Color(0.94902, 0.94902, 0.94902, 1)
 volumetric_fog_emission = Color(0.4, 0.411765, 0.521569, 1)
@@ -84,7 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
 
 [node name="Dinah" parent="NPCs" instance=ExtResource("7_pb5w0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9507, -10.4811, 5.67046)
+transform = Transform3D(0.999999, 6.33548e-10, 0, -3.18693e-10, 0.999999, 0, 0, 0, 0.999997, 29.3823, -18.3696, 15.9094)
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1unqm")
@@ -126,7 +125,7 @@ volume_db = -10.307
 autoplay = true
 
 [node name="maze" parent="." instance=ExtResource("10_ar6kj")]
-transform = Transform3D(2, 2.26919e-10, 0, -1.13673e-10, 3, 0, 0, 0, 2, 2.00958e-05, -0.117852, -3.29674e-05)
+transform = Transform3D(2, 1.13673e-10, 0, -1.13673e-10, 2, 0, 0, 0, 2, 2.00958e-05, -0.117852, -3.29674e-05)
 
 [node name="Player" parent="." instance=ExtResource("13_dcebq")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.47285, 0)

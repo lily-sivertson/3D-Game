@@ -4,6 +4,68 @@ Player: Uhm... hello?
 Dinah: ...
 Player: Who are you?
 Dinah: ... 
+Dinah: I'm Dinah
+- Player: Oh! Are you the one who fell down the drain?
+	Dinah: Yes, how did you know?
+	Player: I taked to Rowan in the sink
+	Dinah: Oh, How is he doing?
+	- Player: good!
+	=> cont
+- Player: Nice to meet you Dinah
+	Dinah: Is it really though?
+	Player: ...
+~ cont 
+Player: how long have you been down here?
+Dinah: I can't even remember... it's been so long
+Player: It's kind of creepy down here... 
+Dinah: Tell me about it... 
+Dinah: Hey, do you have any food?
+Player: uhm...
+- Player: yes (truth)
+- Player: no (lie)
+	set Global.upd_sanity(5)
+	Dinah: Oh.. Okay 
+	- leave
+	=> END
+Dinah: Can I have it?? It been so long since ive been able to eat... Theres nothing down here to eat
+- Player: no! It's mine!
+	set Global.upd_sanity(5)
+	Dinah: oh, please? Im starving... 
+	- Player: fine. => kind
+	- Player: No! Stop, you stupid begger! Get your own food!
+	set Global.upd_sanity(5)
+	Dinah: but...
+	Player: no. I'm not giving you my food. For all I know this is the last food I have until I die down here
+	Dinah: Yes, but what are you going to do when you that's gone? If I die of starvation then there will be nobody to talk to and you'll start to go insane...
+	Dinah: see? It's already happening
+	Player: ...
+	Dinah: Admit it, you need my company!
+	- leave 
+		Player: I am going to keep looking for an exit
+		=> END
+	- give in
+		Player: fine... take it
+	- persist
+		
+		Player: NO! God, you're so annoying! Honestly, it would be better if you just... were silenced....
+		set Global.upd_sanity(10)
+		- leave => END
+		- Stab Dinah 
+		set Global.upd_sanity(20) 
+		set Global.kill_dinah()
+		=> END
+- Player: uh, sure
+	Player: here you go!
+	Dinah: Thank you so much! I've been too hungry to even think!
+	Player: Yeah, no problem! 
+	=> kind
 
+~ kind
+Player: ...
+Player: So, now what do we do? Is there any way out of here?
+Dinah: I don't think so, I would have found it by now... let me think...
+Player: ah...
+Dinah: WAIT, I think I remember seeing something at one point! I was too tired at the time to think about it! C'mon!
+set Global.leave_drain()
 
 => END

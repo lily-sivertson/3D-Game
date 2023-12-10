@@ -14,6 +14,8 @@ const MOUSE_RANGE = 1.5
 var turning=.005
 var words= ""
 var bod=""
+var slashable=false
+var tween
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -32,6 +34,34 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -MOUSE_RANGE, MOUSE_RANGE)
 		# left-right motion, applied to the Player
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+	
+	
+	if event.is_action_pressed("slash"):
+		var Sword=get_node_or_null("/root/Game/Player/Sword")
+		#if slashable==true:
+		var space_state = get_world_3d().direct_space_state
+		var cam = $Pivot/Camera3D
+		var mousepos = get_viewport().get_mouse_position()
+
+		var origin = cam.project_ray_origin(mousepos)
+		var end = origin + cam.project_ray_normal(mousepos) * 10
+		var query = PhysicsRayQueryParameters3D.create(origin, end, collision_mask,[self, $Sword ])
+		query.collide_with_areas = true
+		var result = space_state.intersect_ray(query)
+		if result.has("collider"):
+			print(result)
+			if result.collider.has_method("damage"):
+				
+				if abs(abs(result.position.x)-abs(position.x))<=2 and abs(abs(result.position.y)-abs(position.y))<=2 and abs(abs(result.position.z)-abs(position.z))<=2:
+					tween=create_tween().set_parallel(true)
+					tween.tween_property(result.collider, "position", result.collider.position-result.normal,.2)
+					result.collider.get_child(0).transparency=.5
+					tween.tween_property(result.collider.get_child(0), "transparency",0,.3)
+					result.collider.damage(10)
+					
+				
+			
+			
 	
 	'''if event.is_action_pressed("shoot"):
 		Weapons= get_node_or_null("/root/Game/Weapons")
@@ -94,5 +124,6 @@ func _on_area_3d_body_exited(body):
 		print("no")
 		
 		
-		
+	
+
 	

@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_bmbtp")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 200.0
 offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ytjtf")

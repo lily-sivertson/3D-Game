@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhvaqilelkuwk"]
+[gd_scene load_steps=4 format=3 uid="uid://dhvaqilelkuwk"]
 
 [ext_resource type="Script" path="res://UI/Pause_menu.gd" id="1_5vag0"]
 [ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_a2krx"]
+[ext_resource type="FontFile" uid="uid://b20vmhtkm8qs3" path="res://UI/ZeroCool.ttf" id="3_8ymjy"]
 
 [node name="Pause_menu" type="Control"]
 process_mode = 3
@@ -20,9 +21,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
+offset_left = -250.0
 offset_top = -200.0
-offset_right = 300.0
+offset_right = 250.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -88,20 +89,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.5
-offset_top = -124.0
-offset_right = 23.5
-offset_bottom = -98.0
+offset_left = -51.0
+offset_top = -149.0
+offset_right = 52.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8ymjy")
+theme_override_font_sizes/font_size = 35
 text = "Pause"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 750.0
+offset_left = 695.0
 offset_top = 462.0
-offset_right = 850.0
+offset_right = 795.0
 offset_bottom = 502.0
+theme = ExtResource("2_a2krx")
 text = "Back
 "
 

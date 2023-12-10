@@ -22,7 +22,8 @@ Sound Effects:
 	
  - The Item collect sound is [Diamond Collect](https://freesound.org/people/Arcana23/sounds/685660/) by Arcana23 at Freesound.org
  - The [water drip sound](https://freesound.org/people/roscoetoon/sounds/27151/) is from Roscoetoon at freesound.org
-
+ - The [Slime Sounds](https://freesound.org/people/filippys/sounds/656906/) is from freesound.org
+ - The [Slime Jump](https://freesound.org/people/DrMinky/sounds/167045/) and [Slime Land](https://freesound.org/people/DrMinky/sounds/167075/) are by DrMinky at freesound.org
 ## Future Development
 - sound effects
 - polish

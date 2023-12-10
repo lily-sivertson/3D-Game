@@ -6,7 +6,7 @@ Player:
 - Agree
 	Player: Yes, it sure is!
 	- warn them about burning
-		Player: Beware though, if you stay too loong in here you will burn up and die!
+		Player: Beware though, if you stay too long in here you will burn up and die!
 		Oven: Oh dear! Thank you for the warning! We will keep this in mind!
 	
 	- leave
@@ -15,7 +15,9 @@ Player:
 		- leave => END
 		- warn them
 			Player: All right, dont stay too long though! if you do, you could burn up and die!
-			Oven: oh, thank you for letting us know! Bye bye now! => END
+			Oven: oh, thank you for letting us know! Bye bye now! 
+			set Global.upd_ends("h")
+			=> END
 			
 - Disagree
 	Player: no, it is far too hot in here for me. 
@@ -44,7 +46,10 @@ Oven: Oh? Why do you think it says that?
 	Oven: well, it's probably not a big deal! anyways, if you have nothing else to say, we are going to keep baking!
 	- Warn them
 		Player: all right, but be careful not to stay too long! 
-		Oven: will do! Cya around! => END
+		Oven: will do! Cya around! 
+		set Global.upd_ends("h")
+		=> END
+		
 	- Leave => END
 - I'm not certain, but I have an idea
 	Oven: Oh?
@@ -72,7 +77,8 @@ Oven: Oh? Why do you think it says that?
 				Player: Yes! It will be fun! here, I'll go change the temp first and judge the game!
 				Oven: Okay!
 				- Increase temp
-					set Global.upd_sanity(15)
+					set Global.upd_sanity(20)
+					set Global.kill_oven()
 					=> END
 				- leave and do something else => END
 			- No, I'm not sure
@@ -90,6 +96,7 @@ Oven: Oh? Why do you think it says that?
 	- warn them
 		Player: Still, you should be careful! Don't stay in here too long!
 		Oven: Will do! Anyways, we're gonna keep chilling, cya around though!
+		set Global.upd_ends("h")
 	- leave
 		set Global.upd_sanity(3)
 		Player: Anyways, I am going to leave now, cya' around! => END

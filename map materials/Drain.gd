@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -28,4 +28,5 @@ func _on_timer_timeout():
 
 
 func _on_area_3d_body_exited(body):
-	$Timer.stop()
+	if body.name=="Player":
+		$Timer.stop()

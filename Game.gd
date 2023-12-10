@@ -9,16 +9,17 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func _on_drain_body_entered(body):
-	tween=create_tween()
-	Global.upd_score(10)
-	tween.tween_property($UI/ColorRect, "modulate:a", 1, 1.5)
-	await(tween.finished)
-	get_tree().change_scene_to_file("res://map materials/Drain.tscn")
+	if body.name=="Player":
+		tween=create_tween()
+		Global.upd_score(10)
+		tween.tween_property($UI/ColorRect, "modulate:a", 1, 1.5)
+		await(tween.finished)
+		get_tree().change_scene_to_file("res://map materials/Drain.tscn")
 	
 	
 
@@ -29,7 +30,7 @@ func _on_drain_body_entered(body):
 func _on_area_3d_mouse_entered():
 	if Global.mapint==true:
 		var Actions=get_node_or_null("/root/Game/UI/HUD/Actions")
-		if Global.water_run==false:
+		if Global.plug==false:
 			Actions.text="Press [E] to plug drain"
 			Global.upd_intobj("drain_plug")
 		else:
@@ -50,3 +51,22 @@ func _on_area_3d_area_entered(area):
 func _on_area_3d_area_exited(area):
 	if area.get_parent().name=="Player":
 		Global.upd_mapint(false)
+
+
+func _on_area_3d_body_entered(body):
+	if body.name=="Player":
+		var counter=get_node_or_null("/root/Game/map/Water/Timer")
+		if counter!=null:
+			counter.start()
+		
+
+
+func _on_timer_timeout():
+	Global.upd_health(2)
+
+
+func _on_area_3d_body_exited(body):
+	if body.name=="Player":
+		var counter=get_node_or_null("/root/Game/map/Water/Timer")
+		if counter!=null:
+			counter.stop()

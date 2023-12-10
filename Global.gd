@@ -19,8 +19,11 @@ var int_obj="" # the name of the object you are interacting with
 var mapint=false #controls whether or not we can interact with parts of the map
 
 
+
+
 var water_run=false # whether or not the sink water is running
 var plug=false
+var in_oven=false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,7 +59,7 @@ func _input(event):
 		if screen!=null:
 			screen.modulate.a=0
 		if int_obj=="oven":
-			#transit()
+			#get_tree().paused=true
 			tween=create_tween()
 			tween.tween_property(screen, "modulate:a", 1, 1.5)
 			await(tween.finished)	
@@ -65,6 +68,12 @@ func _input(event):
 			var player= get_node_or_null("/root/Game/Player")
 			if player!=null: 
 				player.global_position= Vector3(26.007,10.539,-13.87)
+				var enemeies=get_node_or_null("/root/Game/Enemies")
+				for enemy in enemeies.get_children():
+					enemy.paused
+				
+				
+				in_oven=true
 		if int_obj=="floor":
 			tween=create_tween()
 			tween.tween_property(screen, "modulate:a", 1, 1.5)
@@ -72,23 +81,48 @@ func _input(event):
 			var player= get_node_or_null("/root/Game/Player")
 			if player!=null: 
 				player.global_position= Vector3(21.913,.845,-10.08)
+				in_oven=false
 		if int_obj=="water_off":
 			var stream=get_node_or_null("/root/Game/map/Stream")
 			if stream!=null:
 				stream.hide()
-				water_run=true
+				water_run=false
+			
 		if int_obj=="water_on":
 			var stream=get_node_or_null("/root/Game/map/Stream")
+			var Water=get_node_or_null("/root/Game/map/Water")
 			if stream!=null:
 				stream.show()
-				water_run=false
+				water_run=true
+			if plug==true:
+				tween=create_tween()
+				tween.tween_property(Water,"position", Vector3(-3.97,5.75,2.304),7)
 				
 		if int_obj=="calendar":
 			pass
 		if int_obj=="drain_plug":
-			pass
+			
+			var Plug=get_node_or_null("/root/Game/map/Plug")
+			var Water=get_node_or_null("/root/Game/map/Water")
+			
+			if Plug!=null:
+				Plug.global_position=Vector3(0,0,0)
+				Plug.global_rotation=Vector3(0,0,0)
+				if water_run==true:
+					tween=create_tween()
+					print("the water should rise now")
+					tween.tween_property(Water,"position", Vector3(-3.97,5.75,2.304),7)
+				plug=true
+			
 		if int_obj=="drain_unplug":
-			pass
+			var Plug=get_node_or_null("/root/Game/map/Plug")
+			var Water=get_node_or_null("/root/Game/map/Water")
+			if Plug!=null:
+				Plug.global_position=Vector3(5.606,9.274,.002)
+				Plug.global_rotation=Vector3(0,0,71.1)
+				tween=create_tween()
+				tween.tween_property(Water,"position", Vector3(-3.97,3.581,2.304),7)
+				plug=false
 		screen.modulate.a=0
 		int_obj=""
 func transit():
@@ -109,10 +143,20 @@ func upd_score(s):
 
 		
 func upd_health(h):
-	health+=h
-	"""var Health= get_node_or_null("/root/Game/UI/HUD/Health")
-	if Score!=null:
-		Score.text= "Score: "+ str(score)"""
+	
+	health-=h
+	var Health= get_node_or_null("/root/Game/UI/HUD/Health")
+	if Health!= null: 
+		Health.value=health
+	if health<=0:
+		var screen= get_node_or_null("/root/Game/UI/ColorRect")
+		if screen!=null:
+			screen.modulate.a=0
+			tween=create_tween()
+			tween.tween_property(screen, "modulate:a", 1, 1.5)
+			await(tween.finished)	
+		get_tree().change_scene_to_file("res://Endings/Death.tscn")
+		
 
 		
 func upd_sanity(s):
@@ -171,3 +215,65 @@ func upd_mapint(b):
 	
 func upd_intobj(o):
 	int_obj=o
+
+func kill_dinah():
+	var Dinah = get_node_or_null("/root/Game/Dinah")
+	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	tween= create_tween().set_parallel(false)
+	tween.tween_property(screen, "modulate:a", 1, 1.5)
+	await(tween.finished)
+	tween.tween_property(screen, "modulate:a", 0, 1)
+	await(tween.finished)
+	upd_score(400)
+	upd_ends("v")
+	get_tree().change_scene_to_file("res://Game.tscn")
+	upd_health(0)
+	upd_sanity(0)
+	upd_score(0)
+
+	
+	
+func leave_drain():
+	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	tween= create_tween().set_parallel(false)
+	tween.tween_property(screen, "modulate:a", 1, 1.5)
+	await(tween.finished)
+	tween.tween_property(screen, "modulate:a", 0, 1)
+	await(tween.finished)
+	upd_score(400)
+	upd_ends("h")
+	get_tree().change_scene_to_file("res://Game.tscn")
+	upd_health(0)
+	upd_sanity(0)
+	upd_score(0)
+	
+	
+func kill_oven():
+	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	tween= create_tween().set_parallel(false)
+	tween.tween_property(screen, "modulate:a", 1, 1.5)
+	await(tween.finished)
+	tween.tween_property(screen, "modulate:a", 0, 1)
+	await(tween.finished)
+	upd_score(400)
+	upd_ends("v")
+
+func kill_sink():
+	var Sink=get_node_or_null("/root/Game/NPCs/Sink")
+	if Sink!=null:
+		tween=create_tween()
+		tween.tween_property(Sink, "transparency", 1, 7)
+		await(tween.finished)
+		body=Sink
+		poof()
+	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	tween= create_tween().set_parallel(false)
+	tween.tween_property(screen, "modulate:a", 1, 1.5)
+	tween.tween_property(screen, "modulate:a", 0, 1)
+	await(tween.finished)
+	upd_score(400)
+	upd_ends("v")
+
+
+	
+	
