@@ -29,15 +29,15 @@ This game was created in Godot 4.1.1
 
 
 This game includes:
-	- custom made map (credits to my friend DarkTThund3r!!)
-	- Interesting lighting and shading
-	- 3 NPCs to interact with
-	- CSGMesh Characters
-	- Maze in drain system
-	- 2 different implemented endings (more to be added in future)
-	- Inventory system
-	- Music and Sound
-	- custom art
+ - custom made map (credits to my friend DarkTThund3r!!)
+ - Interesting lighting and shading
+ - 3 NPCs to interact with
+ - CSGMesh Characters
+ - Maze in drain system
+ - 2 different implemented endings (more to be added in future)
+ - Inventory system
+ - Music and Sound
+ - custom art
 
 
 ## What Makes this a Game?
