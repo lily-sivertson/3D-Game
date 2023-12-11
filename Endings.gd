@@ -14,11 +14,9 @@ func check_stat(h, v, i):
 	var interacts= i
 	var hero= h
 	var villain= v
-	if hero >=4:
-		pass
-	elif villain>= 4:
-		pass
-	elif Global.flour<=0:
-		pass
-	elif interacts>=4: 
-		pass
+	if hero >=3:
+		get_tree().change_scene_to_file("res://Endings/End_Game.tscn")
+	elif villain>= 3:
+		get_tree().change_scene_to_file("res://Endings/villain.tscn")
+	elif interacts>=3: 
+		get_tree().change_scene_to_file("res://Endings/End_Game.tscn")

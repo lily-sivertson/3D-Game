@@ -11,7 +11,7 @@ Player:
 		Player: How can I help you?
 		Sink: okay so I just need you to carry me out! You can leave me on the counter once were out!
 		Player: No Problem!
-		set Global.upd_ends("h")
+		set Global.save_sink()
 		=> END 
 	- What happened to your friend? 
 		Sink: Dinah? She fell down into the drain... I really hope she's okay...
@@ -19,7 +19,7 @@ Player:
 		Player: ...
 		- Help
 			Player: Okay! C'mon, i'll carry you out... 
-			set Global.upd_ends("h")
+			set Global.save_sink()
 			=> END
 		- Leave
 			Player: No. I don't really care to help someone like you. Good luck getting out of here, I guess. You're gonna need it.
@@ -49,17 +49,26 @@ Player:
 		Sink: come on, please? I've been stuck down here for ages... thankfully nobody has turned on the water yet. If they plugged the Drain, I would surely die!
 		Sink: I know it's a lot to ask but I would really appreciate your help
 		Player: 
-		- Okay... I'll help!
+		- Player: Okay... I'll help!
+			set Global.save_sink()
 		- No, I'm sorry but I can't
 		- Get Lost!
 			Player: Pft, you think I'd actually help you? It's a pity nobody has turned the water on yet. It would be better that way with you gone
 			Sink: oh...
-			Player: Bye bye!
+			- kill them
+				set Global.kill_sink()
+				=> END
+			- leave
+				=> END
 			set Global.upd_sanity(6)
 			=> END
 - Leave
 	Player: You think I would want to help a peasant like you?? In your dreams. 
 	set Global.upd_sanity(6)
+	- kill sink
+		set Global.kill_sink()
+		=> END
+	- say nothing
 	Sink: Fine, there was no need to be rude...
 	=> END
 - Excuse yourself

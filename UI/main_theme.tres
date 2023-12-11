@@ -2,8 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://b20vmhtkm8qs3" path="res://UI/ZeroCool.ttf" id="1_irtx3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_virdn"]
-bg_color = Color(0.715401, 0.275235, 0.559177, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg7kg"]
+bg_color = Color(0.223529, 0.0705882, 0.164706, 1)
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.560784, 0.14902, 0.380392, 1)
@@ -91,8 +91,9 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [resource]
+Button/colors/font_disabled_color = Color(0.470588, 0.188235, 0.45098, 0.501961)
 Button/fonts/font = ExtResource("1_irtx3")
-Button/styles/disabled = SubResource("StyleBoxFlat_virdn")
+Button/styles/disabled = SubResource("StyleBoxFlat_dg7kg")
 Button/styles/focus = SubResource("StyleBoxFlat_p42q8")
 Button/styles/hover = SubResource("StyleBoxFlat_f3d80")
 Button/styles/normal = SubResource("StyleBoxFlat_3puq5")

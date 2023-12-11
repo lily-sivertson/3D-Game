@@ -3,7 +3,9 @@ extends Control
 
 func ready():
 	#Control.MOUSE_FILTER_PASS
-	pass
+	var in_drain= get_node_or_null("/root/Game/maze")
+	if in_drain!=null:
+		$Counter.disabled=true
 
 	
 
@@ -25,3 +27,9 @@ func _on_inventory_pressed():
 
 
 	
+
+
+func _on_button_pressed():
+	var Player=get_node_or_null("/root/Game/Player")
+	if Player!=null:
+		Player.global_position=Vector3(-19,10,13)

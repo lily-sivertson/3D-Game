@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwmrqe4ihklub"]
+[gd_scene load_steps=14 format=3 uid="uid://bwmrqe4ihklub"]
 
 [ext_resource type="Script" path="res://Enemies/Slime.gd" id="1_laoge"]
-[ext_resource type="AudioStream" uid="uid://djdlnaiguulu4" path="res://Enemies/slime_land.wav" id="2_4bh8n"]
 [ext_resource type="AudioStream" uid="uid://dq71sujwcl2ei" path="res://Enemies/Slime_sounds.mp3" id="3_6gv5a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4wub"]
@@ -129,9 +128,6 @@ curve = SubResource("Curve3D_583qg")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="land" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_4bh8n")
 
 [node name="jump" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_6gv5a")

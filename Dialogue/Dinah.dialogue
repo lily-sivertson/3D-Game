@@ -46,14 +46,13 @@ Dinah: Can I have it?? It been so long since ive been able to eat... Theres noth
 	- give in
 		Player: fine... take it
 	- persist
-		
 		Player: NO! God, you're so annoying! Honestly, it would be better if you just... were silenced....
-		set Global.upd_sanity(10)
-		- leave => END
 		- Stab Dinah 
-		set Global.upd_sanity(20) 
-		set Global.kill_dinah()
-		=> END
+			set Global.upd_sanity(20) 
+			set Global.kill_dinah()
+			=> END
+		- leave => END
+		
 - Player: uh, sure
 	Player: here you go!
 	Dinah: Thank you so much! I've been too hungry to even think!

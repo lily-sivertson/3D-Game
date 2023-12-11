@@ -66,9 +66,11 @@ color = Color(0.156863, 0.109804, 0.25098, 0.501961)
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 100.0
+offset_top = 155.0
 offset_right = 300.0
-offset_bottom = 200.0
+offset_bottom = 255.0
+theme = ExtResource("2_r6fw4")
+theme_override_font_sizes/font_size = 25
 text = "Highscore: N/A
 
 "
@@ -101,6 +103,7 @@ text = "Info
 "
 
 [node name="Credits" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -120,9 +123,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 50.0
-offset_top = 80.0
+offset_top = 30.0
 offset_right = 250.0
-offset_bottom = 120.0
+offset_bottom = 70.0
 grow_vertical = 2
 theme = ExtResource("2_r6fw4")
 text = "Quit"
@@ -135,6 +138,7 @@ layout_mode = 1
 stream = ExtResource("4_t7i0m")
 autoplay = true
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

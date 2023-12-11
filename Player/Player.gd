@@ -37,8 +37,7 @@ func _unhandled_input(event):
 	
 	
 	if event.is_action_pressed("slash"):
-		var Sword=get_node_or_null("/root/Game/Player/Sword")
-		#if slashable==true:
+	
 		var space_state = get_world_3d().direct_space_state
 		var cam = $Pivot/Camera3D
 		var mousepos = get_viewport().get_mouse_position()

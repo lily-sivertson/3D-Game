@@ -35,6 +35,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.196078, 0.501961, 0.560784, 1)
 ambient_light_energy = 1.01
 reflected_light_source = 2
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.12
 volumetric_fog_albedo = Color(0.94902, 0.94902, 0.94902, 1)
 volumetric_fog_emission = Color(0.4, 0.411765, 0.521569, 1)
@@ -70,6 +71,16 @@ visible = false
 [node name="Pause_menu" parent="UI" instance=ExtResource("5_hqtx8")]
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qrbop")
 
@@ -83,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6995, 5.98183)
 
 [node name="Dinah" parent="NPCs" instance=ExtResource("7_pb5w0")]
-transform = Transform3D(0.999999, 6.33548e-10, 0, -3.18693e-10, 0.999999, 0, 0, 0, 0.999997, 29.3823, -18.3696, 15.9094)
+transform = Transform3D(2.29711, 1.51778e-09, 0, -7.6264e-10, 2.29711, 0, -5.82077e-11, 1.16415e-10, 2.29711, 29.3823, -18.3696, 15.9094)
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1unqm")

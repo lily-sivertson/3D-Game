@@ -28,7 +28,6 @@ grow_vertical = 2
 theme = ExtResource("1_u2kem")
 
 [node name="Binds" type="Control" parent="Panel"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -46,7 +45,8 @@ A   -> Left
 S   -> Back
 D   -> Right
 Esc   -> Menu
-I   -> Inventory ( still in progress)
+E -> Interact
+enter -> talk to NPCs
 Space   -> Jump
 Left arrow   -> left turn
 Right Arrow   -> right turn"
@@ -92,6 +92,7 @@ You want to get out of this bakery and be sold, no matter the costs"
 autowrap_mode = 2
 
 [node name="Control" type="Control" parent="Panel"]
+visible = false
 anchors_preset = 0
 offset_left = 46.0
 offset_top = 100.0

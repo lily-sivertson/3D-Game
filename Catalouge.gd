@@ -10,7 +10,7 @@ var items= [
 	},
 	{
 		"name"="Recipe",
-		"desc"="a sheet of paper with the instructions to make a simple loaf of bread. The recipe calls for flour, water, yeast, and oil.",
+		"desc"="a sheet of paper with the instructions to make a simple loaf of bread. The recipe calls for flour and water",
 		"iid"=1
 	},
 	{
@@ -25,7 +25,7 @@ var items= [
 	},
 	{
 		"name"="Knife",
-		"desc"="A knife. It is pretty shiny, and you can see your reflection in it. It has a serrated edge, perfect for cutting crust",
+		"desc"="A knife. It is pretty shiny, and you can see your reflection in it.",
 		"iid"=4
 	},
 	{

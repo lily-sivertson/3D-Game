@@ -15,3 +15,8 @@ func _on_credits_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_ready():
+	$Label.text="Highscore: " + str(Global.hs)
+	Global.restart()

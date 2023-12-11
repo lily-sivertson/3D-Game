@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7eed6ud5a00n"]
+
+[ext_resource type="Script" path="res://Endings/End_Game.gd" id="1_5ndkp"]
+[ext_resource type="Theme" uid="uid://57f5meadx3qk" path="res://UI/main_theme.tres" id="2_t62s5"]
+
+[node name="End_Game" type="Node2D"]
+script = ExtResource("1_5ndkp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.054902, 0.109804, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t62s5")
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -16.5
+offset_right = 125.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t62s5")
+theme_override_font_sizes/font_size = 25
+text = "final score: "
+
+[node name="Main _menu" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 76.0
+offset_right = 75.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t62s5")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 131.0
+offset_right = 75.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t62s5")
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/Main _menu" to="." method="_on_main__menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]

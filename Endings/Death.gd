@@ -94,15 +94,18 @@ func _on_sec_7_timeout():
 
 
 func _on_sec_8_timeout():
+	Global.restart()
 	get_tree().change_scene_to_file("res://Game.tscn")
 
 
 func _on_sec_9_timeout():
 	$Words10.show()
+	$sec10.start()
 
 
 func _on_sec_10_timeout():
-	get_tree().change_scene_to_file("res://UI/Main_menu.tscn")
+	
+	get_tree().change_scene_to_file("res://Endings/End_Game.tscn")
 
 
 

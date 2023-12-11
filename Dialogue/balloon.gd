@@ -9,11 +9,11 @@ extends CanvasLayer
 @export var portraits = [
 	{ "name": "Player", "portrait": load("res://Assets/Player_Portrait.png") }
 	,{ "name": "Toaster", "portrait": load("res://Assets/Toaster_Portrait.png") }
-	,{ "name": "Dinah", "portrait": load("res://Assets/Dinah_portrait.png") }
-	,{ "name": "Sink", "portrait": load("res://Assets/Dinah_portrait.png") }
-	,{ "name": "Oven", "portrait": load("res://Assets/Dinah_portrait.png") }
-	,{ "name": "Rowan", "portrait": load("res://Assets/Dinah_portrait.png") }
-	,{ "name": "christine", "portrait": load("res://Assets/Dinah_portrait.png") }
+	,{ "name": "Dinah", "portrait": load("res://Assets/Toaster_portrait.png") }
+	,{ "name": "Sink", "portrait": load("res://Assets/Toaster_portrait.png") }
+	,{ "name": "Oven", "portrait": load("res://Assets/Toaster_portrait.png") }
+	,{ "name": "Rowan", "portrait": load("res://Assets/Toaster_portrait.png") }
+	,{ "name": "christine", "portrait": load("res://Assets/Toaster_portrait.png") }
 	
 	
 ]

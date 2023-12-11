@@ -36,6 +36,7 @@ theme = ExtResource("2_w1oys")
 value = 70.0
 
 [node name="Sanity" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 981.0
 offset_top = 106.0
@@ -80,5 +81,15 @@ offset_bottom = 626.0
 theme = ExtResource("2_w1oys")
 text = "Actions"
 
+[node name="Counter" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 515.0
+offset_right = 1131.0
+offset_bottom = 565.0
+theme = ExtResource("2_w1oys")
+text = "Counter"
+
 [connection signal="pressed" from="Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Counter" to="." method="_on_button_pressed"]

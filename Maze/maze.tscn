@@ -23,12 +23,10 @@ shape = SubResource("ConcavePolygonShape3D_xxuml")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(27.7554, 0, 0, 0, 1, 0, 0, 0, 24, 12.9189, 1.479, 11)
-visible = false
 mesh = SubResource("BoxMesh_dj0a0")
 surface_material_override/0 = ExtResource("2_ssl5n")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_xxuml")

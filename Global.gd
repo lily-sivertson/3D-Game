@@ -1,7 +1,7 @@
 extends Node
 
 
-var storage=["Flour"]
+var storage=["Flour", "Knife"]
 
 var score=0
 var health=100
@@ -18,12 +18,14 @@ var interacted= 0 #how many people you ahev had a significant interactiong with
 var int_obj="" # the name of the object you are interacting with
 var mapint=false #controls whether or not we can interact with parts of the map
 
+var hs=0
 
 
 
 var water_run=false # whether or not the sink water is running
 var plug=false
 var in_oven=false
+var sink_npc=true #whether or not the npc in the sink is alive
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +33,18 @@ func _ready():
 	#Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	pass
 
+func restart():
+	health=100
+	score=0
+	sanity=100
+	hero=0
+	villain=0
+	interacted=0
+	mapint=false
+	int_obj=""
+	water_run=false
+	plug=false
+	in_oven=false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -41,8 +55,8 @@ func _input(event):
 		if Pause_menu==null:
 			get_tree().quit()
 		else: 
-			
-			if Pause_menu.visible:
+			pass
+			'''if Pause_menu.visible:
 				print("the pause menu is visible")
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				get_tree().paused = false
@@ -53,7 +67,7 @@ func _input(event):
 				print("njsfvndsfiv")
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				get_tree().paused = true
-				Pause_menu.show()
+				Pause_menu.show()'''
 	if event.is_action_pressed("interact") and mapint==true:
 		var screen= get_node_or_null("/root/Game/UI/ColorRect")
 		if screen!=null:
@@ -68,10 +82,9 @@ func _input(event):
 			var player= get_node_or_null("/root/Game/Player")
 			if player!=null: 
 				player.global_position= Vector3(26.007,10.539,-13.87)
-				var enemeies=get_node_or_null("/root/Game/Enemies")
+				'''var enemeies=get_node_or_null("/root/Game/Enemies")
 				for enemy in enemeies.get_children():
-					enemy.paused
-				
+					enemy.paused'''
 				
 				in_oven=true
 		if int_obj=="floor":
@@ -97,7 +110,10 @@ func _input(event):
 			if plug==true:
 				tween=create_tween()
 				tween.tween_property(Water,"position", Vector3(-3.97,5.75,2.304),7)
-				
+				if sink_npc==true:
+					sink_npc=false
+					kill_sink()
+					
 		if int_obj=="calendar":
 			pass
 		if int_obj=="drain_plug":
@@ -112,7 +128,11 @@ func _input(event):
 					tween=create_tween()
 					print("the water should rise now")
 					tween.tween_property(Water,"position", Vector3(-3.97,5.75,2.304),7)
+					if sink_npc==true:
+						sink_npc=false
+						kill_sink()
 				plug=true
+				
 			
 		if int_obj=="drain_unplug":
 			var Plug=get_node_or_null("/root/Game/map/Plug")
@@ -139,6 +159,7 @@ func upd_score(s):
 	var Score= get_node_or_null("/root/Game/UI/HUD/Score")
 	if Score!=null:
 		Score.text= "Score: "+ str(score)
+	calc_hs()
 	
 
 		
@@ -217,11 +238,10 @@ func upd_intobj(o):
 	int_obj=o
 
 func kill_dinah():
-	var Dinah = get_node_or_null("/root/Game/Dinah")
+	var Dinah = get_node_or_null("/root/Game/NPCs/Dinah")
 	var screen=get_node_or_null("/root/Game/UI/ColorRect")
 	tween= create_tween().set_parallel(false)
 	tween.tween_property(screen, "modulate:a", 1, 1.5)
-	await(tween.finished)
 	tween.tween_property(screen, "modulate:a", 0, 1)
 	await(tween.finished)
 	upd_score(400)
@@ -237,7 +257,6 @@ func leave_drain():
 	var screen=get_node_or_null("/root/Game/UI/ColorRect")
 	tween= create_tween().set_parallel(false)
 	tween.tween_property(screen, "modulate:a", 1, 1.5)
-	await(tween.finished)
 	tween.tween_property(screen, "modulate:a", 0, 1)
 	await(tween.finished)
 	upd_score(400)
@@ -250,20 +269,22 @@ func leave_drain():
 	
 func kill_oven():
 	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	var oven=get_node_or_null("/root/Game/NPCs/Oven")
 	tween= create_tween().set_parallel(false)
 	tween.tween_property(screen, "modulate:a", 1, 1.5)
-	await(tween.finished)
 	tween.tween_property(screen, "modulate:a", 0, 1)
+	#tween.tween_property(oven, "modulate:v",1,3)
 	await(tween.finished)
 	upd_score(400)
 	upd_ends("v")
+	body=oven
+	poof()
 
 func kill_sink():
+	print("killing sink") 
 	var Sink=get_node_or_null("/root/Game/NPCs/Sink")
 	if Sink!=null:
-		tween=create_tween()
-		tween.tween_property(Sink, "transparency", 1, 7)
-		await(tween.finished)
+		print("sink exists")
 		body=Sink
 		poof()
 	var screen=get_node_or_null("/root/Game/UI/ColorRect")
@@ -273,7 +294,26 @@ func kill_sink():
 	await(tween.finished)
 	upd_score(400)
 	upd_ends("v")
+	
+	
+func save_sink():
+	var Sink=get_node_or_null("/root/Game/NPCs/Sink")
+	if Sink!=null:
+		#tween=create_tween()
+		#tween.tween_property(Sink, "transparency", 1, 7)
+		#await(tween.finished)
+		body=Sink
+		poof()
+	var screen=get_node_or_null("/root/Game/UI/ColorRect")
+	tween= create_tween().set_parallel(false)
+	tween.tween_property(screen, "modulate:a", 1, 1.5)
+	tween.tween_property(screen, "modulate:a", 0, 1)
+	await(tween.finished)
+	upd_score(400)
+	upd_ends("h")
 
-
+func calc_hs():
+	if score>hs:
+		hs=score
 	
 	

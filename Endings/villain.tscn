@@ -1,0 +1,363 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmgcx413yjxlh"]
+
+[ext_resource type="Script" path="res://Endings/villain.gd" id="1_f2kjx"]
+[ext_resource type="Theme" uid="uid://cr4ambofr8c0u" path="res://UI/ending_theme.tres" id="2_y4q7s"]
+[ext_resource type="AudioStream" uid="uid://bvegpnqemicr0" path="res://Assets/Vasyl Sakal - Lurking Danger.mp3" id="3_gv5da"]
+
+[node name="Villain" type="Node2D"]
+script = ExtResource("1_f2kjx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.054902, 0.109804, 1)
+
+[node name="sec1" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="sec2" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="sec3" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="sec4" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="sec5" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="sec6" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="sec7" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="sec8" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="sec9" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="sec10" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="sec11" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="sec12" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="sec13" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="sec14" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="sec15" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="sec16" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+
+[node name="Yes" type="Button" parent="."]
+visible = false
+offset_left = 471.0
+offset_top = 363.0
+offset_right = 546.0
+offset_bottom = 403.0
+theme = ExtResource("2_y4q7s")
+text = "yes"
+
+[node name="No" type="Button" parent="."]
+visible = false
+offset_left = 606.0
+offset_top = 363.0
+offset_right = 681.0
+offset_bottom = 403.0
+theme = ExtResource("2_y4q7s")
+text = "no"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 545.0
+offset_top = 503.0
+offset_right = 624.0
+offset_bottom = 534.0
+text = "Continue"
+
+[node name="Words" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 81.0
+offset_right = 926.0
+offset_bottom = 151.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "Suddenly you feel something change about the atmosphere..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words12" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 81.0
+offset_right = 926.0
+offset_bottom = 151.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "Everything fades to darkness. You are so focused on your racing thoughts that you barely even notice."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words2" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 155.0
+offset_right = 926.0
+offset_bottom = 225.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "You feel... excited...
+In the distance you can hear the bell ring on the door as a customer walks in"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words13" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 155.0
+offset_right = 926.0
+offset_bottom = 225.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "Even though you got sold, even though you sabotaged everyone else, people are still not happy with you."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words4" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 243.0
+offset_right = 926.0
+offset_bottom = 343.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "You hear voices talking in the next room over. The voices stop shortly and you hear footsteps coming towards you."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words14" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 231.0
+offset_right = 926.0
+offset_bottom = 342.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "You finally did it. You got sold, but why doesn't it feel as good as you thought it would? Why did their words sting so much? You have always known that you were not good enough... why does it bother you so much now?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words5" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 352.0
+offset_right = 926.0
+offset_bottom = 452.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "A woman enters the kitchen, looks around for a bit, then picks you up and says: 'It's your lucky day I guess! I can't find any other loaves so you will have to do!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words15" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 361.0
+offset_right = 926.0
+offset_bottom = 454.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "You thought it would be different when you got sold, that someone would want you, but nothing ever changes. You have never been, and never will be good enough."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words11" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 473.0
+offset_right = 926.0
+offset_bottom = 573.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "The next thing you know, you are being packages up and carried out into the cold. However, you can't focus on the cold, lost in thought."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words16" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 473.0
+offset_right = 926.0
+offset_bottom = 573.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 20
+text = "It's not fair. You have always been looking forward to this day, the day you finally got sold... You worked so hard to get here. You deserve to be happy, but everyone else is ruining it..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words6" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 153.0
+offset_right = 926.0
+offset_bottom = 223.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 25
+text = "it asks you:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words17" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 153.0
+offset_right = 926.0
+offset_bottom = 223.0
+theme = ExtResource("2_y4q7s")
+theme_override_font_sizes/font_size = 25
+text = "it asks you:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words7" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 235.0
+offset_right = 926.0
+offset_bottom = 305.0
+theme = ExtResource("2_y4q7s")
+theme_override_colors/font_color = Color(0.792157, 0.262745, 0.360784, 1)
+theme_override_font_sizes/font_size = 20
+text = "Would you like to play again?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words8" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 198.0
+offset_right = 926.0
+offset_bottom = 298.0
+theme = ExtResource("2_y4q7s")
+theme_override_colors/font_color = Color(0.790663, 0.263881, 0.362536, 1)
+theme_override_font_sizes/font_size = 25
+text = "...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words9" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 281.0
+offset_right = 926.0
+offset_bottom = 381.0
+theme = ExtResource("2_y4q7s")
+theme_override_colors/font_color = Color(0.790663, 0.263881, 0.362536, 1)
+theme_override_font_sizes/font_size = 25
+text = "good luck then... I can't wait to see what you will do this time, knowing what you do now =)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Words10" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 286.0
+offset_right = 926.0
+offset_bottom = 386.0
+theme = ExtResource("2_y4q7s")
+theme_override_colors/font_color = Color(0.790663, 0.263881, 0.362536, 1)
+theme_override_font_sizes/font_size = 25
+text = "I see. Bye bye for now then... I hope I will see you again in some other lifetime... I had so much fun watching you... play my game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gv5da")
+autoplay = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="sec1" to="." method="_on_sec_1_timeout"]
+[connection signal="timeout" from="sec2" to="." method="_on_sec_2_timeout"]
+[connection signal="timeout" from="sec3" to="." method="_on_sec_3_timeout"]
+[connection signal="timeout" from="sec4" to="." method="_on_sec_4_timeout"]
+[connection signal="timeout" from="sec5" to="." method="_on_sec_5_timeout"]
+[connection signal="timeout" from="sec6" to="." method="_on_sec_6_timeout"]
+[connection signal="timeout" from="sec7" to="." method="_on_sec_7_timeout"]
+[connection signal="timeout" from="sec8" to="." method="_on_sec_8_timeout"]
+[connection signal="timeout" from="sec9" to="." method="_on_sec_9_timeout"]
+[connection signal="timeout" from="sec10" to="." method="_on_sec_10_timeout"]
+[connection signal="timeout" from="sec11" to="." method="_on_sec_11_timeout"]
+[connection signal="timeout" from="sec12" to="." method="_on_sec_12_timeout"]
+[connection signal="timeout" from="sec13" to="." method="_on_sec_13_timeout"]
+[connection signal="timeout" from="sec14" to="." method="_on_sec_14_timeout"]
+[connection signal="timeout" from="sec15" to="." method="_on_sec_15_timeout"]
+[connection signal="timeout" from="sec16" to="." method="_on_sec_16_timeout"]
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
