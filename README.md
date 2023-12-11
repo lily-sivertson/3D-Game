@@ -2,10 +2,11 @@
 Bread Shop
 
 
-Project for MSCH-220
-11/14/2023 
+Project for MSCH-220 
+12/10/2023 
 3d Game based of text based adventure game
-Description: You are a piece of bread that it is stuck in a bakery. You want to get sold, no matter the costs.
+
+- Description: You are a piece of bread that it is stuck in a bakery. You want to get sold, no matter the costs.
 
 Gameplay: 
 	
