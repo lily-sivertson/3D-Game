@@ -1,5 +1,4 @@
-# Project Name
-Bread Shop
+# Bread Shop
 
 
 Project for MSCH-220 
